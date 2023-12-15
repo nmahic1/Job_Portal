@@ -1,4 +1,3 @@
-import "./App.scss";
 import React from "react";
 import Landing from "./Screens/Landing/Landing";
 import Login from "./Screens/Login/Login";
