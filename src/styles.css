@@ -1,1 +1,22 @@
-/*# sourceMappingURL=styles.css.map */
+.navbar {
+  background-color: white;
+  padding: 10px;
+}
+.navbar .name {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 20px;
+  color: rgb(62, 162, 105);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body {
+  margin: 0;
+}/*# sourceMappingURL=styles.css.map */
