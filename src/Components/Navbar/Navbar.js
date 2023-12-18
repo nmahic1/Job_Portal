@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <p className="name">JobsPortal</p>
-      <div className="button-container2">
+      <div className="right">
         <Button onClick={handleLogin}>Login</Button>
         <Button onClick={handleJob}>Post a Job</Button>
       </div>

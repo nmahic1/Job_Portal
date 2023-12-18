@@ -1,6 +1,17 @@
-.button-container2 {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 20px;
+.button-container {
+  background-color: white;
+  color: rgb(62, 162, 105);
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+
+  &:hover,
+  &:focus {
+    background-color: rgb(62, 162, 105);
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+  }
 }

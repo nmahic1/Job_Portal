@@ -13,25 +13,22 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="register-wrapper">
       <Navbar></Navbar>
-      <p className="name-login">Register</p>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <p className="name-register">Register</p>
+      <div className="content">
         <Input
           label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+
         <Input
           label="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
 
-      <div style={{ display: "flex", justifyContent: "center" }}>
         <Button onClick={handleLogin}>Create Account</Button>
       </div>
     </div>

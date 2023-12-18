@@ -3,11 +3,9 @@ import React from "react";
 function Input(props) {
   return (
     <div className="input-wrapper">
-      <div style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
-        {props.label}
-      </div>
+      <label>{props?.label}</label>
       <input
-        className="input-container"
+        {...props}
         type={props.type || "text"}
         value={props.value}
         onChange={props.onChange}
