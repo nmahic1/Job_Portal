@@ -1,15 +1,17 @@
 import React from "react";
-import "./_input.scss";
 
-function Input() {
+function Input(props) {
   return (
-    <div>
-      <form className="login-form">
-        <label>Username</label>
-        <input type="text"></input>
-        <label>Password</label>
-        <input type="text"></input>
-      </form>
+    <div className="input-wrapper">
+      <div style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+        {props.label}
+      </div>
+      <input
+        className="input-container"
+        type={props.type || "text"}
+        value={props.value}
+        onChange={props.onChange}
+      />
     </div>
   );
 }

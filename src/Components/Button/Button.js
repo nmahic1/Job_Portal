@@ -1,8 +1,17 @@
 import React from "react";
-import "./_button.scss";
 
 function Button(props) {
-  return <button className="button-container">{props.title}</button>;
+  return (
+    <div>
+      <button
+        type="button"
+        className="button-container"
+        onClick={props.onClick}
+      >
+        {props.children}
+      </button>
+    </div>
+  );
 }
 
 export default Button;

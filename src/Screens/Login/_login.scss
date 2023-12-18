@@ -1,3 +1,27 @@
+.login-wrapper {
+  .name-login2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    margin-top: 0px;
+    padding: 15px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .name-login {
   background-color: rgb(238, 236, 236);
   font-family: Arial, Helvetica, sans-serif;

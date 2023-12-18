@@ -1,20 +1,86 @@
 .navbar {
-  background-color: white;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 }
-.navbar .name {
-  margin: 0;
-  font-weight: bold;
-  font-size: 20px;
-  padding-left: 20px;
-  color: rgb(62, 162, 105);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar-content {
+.navbar .navbar-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.navbar .name {
+  color: rgb(62, 162, 105);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.button-container {
+  background-color: white;
+  color: rgb(62, 162, 105);
+  padding: 8px 16px;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
+  margin-right: 20px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+.button-container:hover, .button-container:focus {
+  background-color: rgb(62, 162, 105);
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.button-container2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.input-wrapper .input-container {
+  width: 300px;
+  padding: 12px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-wrapper .name-login2 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+  margin-top: 0px;
+  padding: 15px;
+}
+.login-wrapper .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-wrapper .input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-login {
+  background-color: rgb(238, 236, 236);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  margin-top: 0px;
+  padding: 15px;
 }
 
 body {
