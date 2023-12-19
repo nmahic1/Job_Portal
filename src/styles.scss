@@ -1,3 +1,18 @@
+@import "./Components/Navbar/navbar";
+@import "./Components/Button/button";
+@import "./Components/Input/input";
+@import "./Screens/Login/login";
+@import "./Screens/Register/register";
+
 body {
   margin: 0;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  font-size: 16px;
+  --primary-green: rgb(62, 162, 105);
 }
