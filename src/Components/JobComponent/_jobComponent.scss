@@ -1,0 +1,44 @@
+.job-wrapper {
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+
+  .button-job {
+    /*display: flex;
+    justify-content: flex-end;*/
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .first {
+    color: rgb(144, 141, 141);
+    margin-left: 10px;
+  }
+
+  .details {
+    display: flex;
+    gap: 20px;
+  }
+
+  .details img {
+    width: 12px;
+    height: auto;
+    gap: 5px;
+  }
+
+  h3 {
+    /*margin: 0px 0px;*/
+    margin: 0;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .main {
+    margin-left: 20px;
+  }
+}

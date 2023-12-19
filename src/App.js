@@ -4,6 +4,7 @@ import Login from "./Screens/Login/Login";
 import Register from "./Screens/Register/Register";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (

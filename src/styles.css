@@ -4,7 +4,7 @@
   align-items: center;
   width: 100vw;
   color: rgb(62, 162, 105);
-  padding: 8px 2rem;
+  padding: 8px 1rem;
   box-sizing: border-box;
 }
 .navbar .name {
@@ -18,7 +18,7 @@
 .button-container {
   background-color: white;
   color: rgb(62, 162, 105);
-  padding: 8px 16px;
+  padding: 12px 16px;
   transition: all 0.3s ease;
   border: none;
   border-radius: 10px;
@@ -90,6 +90,137 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+}
+
+.landing-wrapper {
+  position: relative;
+  background-image: url("../src/Assets/jobpicture.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 80px;
+}
+.landing-wrapper .green-text {
+  color: rgb(62, 162, 105);
+}
+.landing-wrapper .gray-text {
+  color: rgb(144, 141, 141);
+}
+.landing-wrapper h1,
+.landing-wrapper p {
+  margin: 0px 5px;
+  padding-left: 80px;
+  padding-top: 10px;
+}
+
+.landing-wrapper2 {
+  background-image: url("../src/Assets/boja.PNG");
+}
+.landing-wrapper2 .box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.landing-wrapper3 .button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+}
+
+h2 {
+  text-align: center;
+  margin: 0px 0px;
+  padding: 20px 20px;
+}
+
+.search-wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-left: 80px;
+}
+.search-wrapper input {
+  width: 300px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.box-wrapper {
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  margin: 10px;
+}
+.box-wrapper .background-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+.box-wrapper .icon {
+  position: absolute;
+  top: 18%;
+  left: 43%;
+  transform: translate(-10%, -10%);
+}
+.box-wrapper .text {
+  margin-top: 30px;
+}
+
+.job-wrapper {
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+.job-wrapper .button-job {
+  /*display: flex;
+  justify-content: flex-end;*/
+  margin-left: auto;
+  margin-right: 20px;
+}
+.job-wrapper .first {
+  color: rgb(144, 141, 141);
+  margin-left: 10px;
+}
+.job-wrapper .details {
+  display: flex;
+  gap: 20px;
+}
+.job-wrapper .details img {
+  width: 12px;
+  height: auto;
+  gap: 5px;
+}
+.job-wrapper h3 {
+  /*margin: 0px 0px;*/
+  margin: 0;
+}
+.job-wrapper .text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.job-wrapper .main {
+  margin-left: 20px;
+}
+
+.footer {
+  text-align: center;
+  background-color: rgb(62, 162, 105);
+  color: white;
+  padding: 20px 20px;
 }
 
 body {
