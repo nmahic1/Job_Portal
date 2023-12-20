@@ -226,6 +226,55 @@
   padding: 20px 20px;
 }
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.table td,
+.table th {
+  border: 1px solid whitesmoke;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(0, 0, 0);
+}
+.table .header {
+  font-size: 20px;
+  text-align: center;
+}
+.table .button-icons {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.table .button-icons i:not(:last-child) {
+  margin-right: 10px;
+}
+.table .button-icons i:hover,
+.table .button-icons i:active {
+  color: rgb(62, 162, 105);
+}
+
+.jobsList-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.jobsList-wrapper .name-jobsList {
+  background-color: rgb(238, 236, 236);
+  text-align: center;
+  font-size: 1.25rem;
+  color: black;
+  margin-top: 0px;
+  padding: 15px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
