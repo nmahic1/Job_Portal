@@ -2,12 +2,11 @@ import React from "react";
 import Button from "../Button/Button";
 import Map from "../../Assets/Map.png";
 import FullTime from "../../Assets/minimize.png";
-import Circle from "../../Assets/Ellipse 2.png";
 
 function JobComponent() {
   return (
     <div className="job-wrapper">
-      <img className="main" src={Circle} alt="krug" />
+      <div className="circle"></div>
       <div class="text">
         <p className="first">Match Company Limited</p>
         <h3>Fresher UI/UX Desginer (3 Years Exp.)</h3>

@@ -10,9 +10,9 @@ import Footer from "../../Components/Footer/Footer";
 
 function Landing() {
   return (
-    <div>
+    <div className="landing-wrapper">
       <Navbar />
-      <div className="landing-wrapper">
+      <div className="landing-content-1">
         <h1>
           Find a <span className="green-text">Job</span>{" "}
         </h1>
@@ -29,7 +29,7 @@ function Landing() {
         </p>
         <SearchBar />
       </div>
-      <div className="landing-wrapper2">
+      <div className="landing-content-2">
         <h2>Popular Categories</h2>
         <div className="box">
           <Box>Technology</Box>
@@ -46,7 +46,7 @@ function Landing() {
           <Box>Technology</Box>
         </div>
       </div>
-      <div className="landing-wrapper3">
+      <div className="landing-content-3">
         <h2>All Popular Listed jobs</h2>
 
         <JobComponent></JobComponent>
@@ -60,6 +60,7 @@ function Landing() {
           <Button>View More</Button>
         </div>
       </div>
+
       <Footer></Footer>
     </div>
   );
