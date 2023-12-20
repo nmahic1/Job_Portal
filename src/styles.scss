@@ -3,6 +3,13 @@
 @import "./Components/Input/input";
 @import "./Screens/Login/login";
 @import "./Screens/Register/register";
+@import "./Screens/Landing/landing";
+@import "./Components/SearchBar/searchBar";
+@import "./Components/Box/box";
+@import "./Components/JobComponent/jobComponent";
+@import "./Components/Footer/footer";
+@import "./Components/Table/table";
+@import "./Screens/JobsList/jobsList";
 
 body {
   margin: 0;
@@ -10,6 +17,12 @@ body {
 
 * {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin: 0px;
+  padding: 20px;
 }
 
 :root {

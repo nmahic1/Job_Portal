@@ -1,0 +1,16 @@
+.jobsList-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .name-jobsList {
+    background-color: rgb(238, 236, 236);
+    text-align: center;
+    font-size: 1.25rem;
+    color: black;
+    margin-top: 0px;
+    padding: 15px;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+}
