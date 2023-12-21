@@ -14,17 +14,11 @@ function Landing() {
       <Navbar />
       <div className="landing-content-1">
         <h1>
-          Find a <span className="green-text">Job</span>{" "}
+          Find a <span className="green-text">Job</span> That{" "}
+          <span className="green-text">Matches</span> Your Passion
         </h1>
-        <h1>
-          That <span className="green-text">Matches</span> Your
-        </h1>
-        <h1>Passion</h1>
         <p className="gray-text">
           Hand-picked opportunities to work from home, remotely, freelance,
-        </p>
-        <p className="gray-text">
-          {" "}
           full-time, part-time, contract and internships.
         </p>
         <SearchBar />
