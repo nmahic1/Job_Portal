@@ -4,6 +4,7 @@ import Login from "./Screens/Login/Login";
 import Register from "./Screens/Register/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JobsList from "./Screens/JobsList/JobsList";
+import CreateJob from "./Screens/CreateJob/CreateJob";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/jobsList" element={<JobsList />}></Route>
+        <Route path="/createJob" element={<CreateJob />}></Route>
       </Routes>
     </BrowserRouter>
   );
