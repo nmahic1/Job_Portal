@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
   const navigate = useNavigate();
   const handleLogin = () => {
+    navigate("/login");
     console.log("Prijavljeni ste!");
   };
 

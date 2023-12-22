@@ -4,7 +4,7 @@
   align-items: center;
   width: 100vw;
   color: rgb(62, 162, 105);
-  padding: 8px 1rem;
+  padding: 8px;
   box-sizing: border-box;
 }
 .navbar .name {
@@ -152,17 +152,24 @@
 }
 
 .box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box-wrapper .box1 {
   background-color: white;
   width: 150px;
   height: 150px;
   border: 1px solid rgb(255, 255, 255);
   padding: 10px;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
 }
-.box-wrapper .background-image {
+.box-wrapper .box1 .background-image {
   text-align: center;
 }
-.box-wrapper .circle {
+.box-wrapper .box1 .circle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,11 +179,11 @@
   background-color: lightblue;
   margin-left: 25px;
 }
-.box-wrapper .icon {
+.box-wrapper .box1 .icon {
   align-items: center;
   display: flex;
 }
-.box-wrapper .text {
+.box-wrapper .box1 .text {
   margin-top: 30px;
 }
 
