@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import jobpicture from "../../Assets/jobpicture.png";
 import Input from "../../Components/Input/Input";
@@ -9,6 +9,41 @@ import Button from "../../Components/Button/Button";
 import Footer from "../../Components/Footer/Footer";
 
 function Landing() {
+  const [availableJobs, setAvailableJobs] = useState([
+    {
+      matching: "Match Company Limited",
+      name: "Fresher UI/UX Desginer (3 Years Exp.)",
+      country: "Nairobi, Kenya",
+      time: "Full Time",
+      salary: "Ksh 150,000",
+    },
+    {
+      matching: "Match Company Limited",
+      name: "Fresher UI/UX Desginer (3 Years Exp.)",
+      country: "Nairobi, Kenya",
+      time: "Full Time",
+      salary: "Ksh 150,000",
+    },
+    {
+      matching: "Match Company Limited",
+      name: "Fresher UI/UX Desginer (3 Years Exp.)",
+      country: "Nairobi, Kenya",
+      time: "Full Time",
+      salary: "Ksh 150,000",
+    },
+  ]);
+
+  const [categories, setCategories] = useState([
+    "Technology",
+    "Business",
+    "Finance",
+    "Healthcare",
+    "Technology",
+    "Business",
+    "Finance",
+    "Healthcare",
+  ]);
+
   return (
     <div className="landing-wrapper">
       <Navbar />
@@ -26,29 +61,13 @@ function Landing() {
       <div className="landing-content-2">
         <h2>Popular Categories</h2>
         <div className="box">
-          <Box>Technology</Box>
-          <Box>Technology</Box>
-          <Box>Technology</Box>
-          <Box>Technology</Box>
-          <Box>Technology</Box>
-        </div>
-        <div className="box">
-          <Box>Technology</Box>
-          <Box>Technology</Box>
-          <Box>Technology</Box>
-          <Box>Technology</Box>
-          <Box>Technology</Box>
+          <Box category={categories}></Box>
         </div>
       </div>
       <div className="landing-content-3">
         <h2>All Popular Listed jobs</h2>
 
-        <JobComponent></JobComponent>
-        <JobComponent></JobComponent>
-        <JobComponent></JobComponent>
-        <JobComponent></JobComponent>
-        <JobComponent></JobComponent>
-        <JobComponent></JobComponent>
+        <JobComponent available={availableJobs}></JobComponent>
 
         <div className="button">
           <Button>View More</Button>

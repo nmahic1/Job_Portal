@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   color: rgb(62, 162, 105);
-  padding: 8px 1rem;
+  padding: 8px;
   box-sizing: border-box;
 }
 .navbar .name {
@@ -34,15 +34,21 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 10px;
 }
-.input-wrapper input {
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select {
   width: 300px;
   padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 25px;
+  border-radius: 15px;
   outline: none;
   text-align: center;
   font-size: 16px;
+}
+.input-wrapper select {
+  width: 330px;
 }
 
 .login-wrapper {
@@ -79,7 +85,7 @@
   font-size: 1.25rem;
   color: black;
   margin-top: 0px;
-  padding: 15px;
+  padding: 15px 0px;
   width: 100vw;
   box-sizing: border-box;
 }
@@ -157,18 +163,24 @@
 }
 
 .box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box-wrapper .box1 {
   background-color: white;
   width: 150px;
   height: 150px;
   border: 1px solid rgb(255, 255, 255);
   padding: 10px;
-}
-.box-wrapper .background-image {
+  margin: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-.box-wrapper .circle {
+.box-wrapper .box1 .background-image {
+  text-align: center;
+}
+.box-wrapper .box1 .circle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,13 +188,14 @@
   height: 100px;
   border-radius: 50%;
   background-color: lightblue;
+  margin-left: 25px;
 }
-.box-wrapper .icon {
+.box-wrapper .box1 .icon {
   align-items: center;
   display: flex;
 }
-.box-wrapper .text {
-  margin: 30px;
+.box-wrapper .box1 .text {
+  margin-top: 30px;
 }
 
 .job-wrapper {
@@ -279,6 +292,36 @@
   padding: 15px;
   width: 100vw;
   box-sizing: border-box;
+}
+
+.createjob-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createjob-wrapper .name-createjob {
+  background-color: rgb(238, 236, 236);
+  text-align: center;
+  font-size: 1.25rem;
+  color: black;
+  margin-top: 0px;
+  padding: 15px 0px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+.createjob-wrapper .flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.createjob-wrapper .flex-container .left {
+  padding: 20px;
+}
+.createjob-wrapper .flex-container .right {
+  padding: 20px;
+}
+.createjob-wrapper .job-button {
+  padding: 20px;
 }
 
 body {

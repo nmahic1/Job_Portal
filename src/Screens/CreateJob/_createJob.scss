@@ -1,9 +1,9 @@
-.register-wrapper {
+.createjob-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .name-register {
+  .name-createjob {
     background-color: rgb(238, 236, 236);
     text-align: center;
     font-size: 1.25rem;
@@ -13,11 +13,22 @@
     width: 100vw;
     box-sizing: border-box;
   }
-  .content {
-    width: 400px;
+
+  .flex-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .left {
+      padding: 20px;
+    }
+
+    .right {
+      padding: 20px;
+    }
+  }
+
+  .job-button {
+    padding: 20px;
   }
 }

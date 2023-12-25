@@ -1,12 +1,16 @@
 import React from "react";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
   const handleLogin = () => {
+    navigate("/login");
     console.log("Prijavljeni ste!");
   };
 
   const handleJob = () => {
+    navigate("/createJob");
     console.log("Postavite posao");
   };
 
