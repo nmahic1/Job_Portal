@@ -8,29 +8,27 @@ function JobComponent({ available }) {
   return (
     <div className="jobcomponent-wrapper">
       {available &&
-        available.map((availableJobs) => (
-          <div className="job-wrapper">
+        available.map((job) => (
+          <div key={job._id} className="job-wrapper">
             <div className="circle"></div>
-            <div class="text">
-              <p className="first">{availableJobs.companyName}</p>
-              <h3>{availableJobs.jobTitle}</h3>
+            <div className="text">
+              <p className="first">{job.companyName}</p>
+              <h3>{job.jobTitle}</h3>
               <div className="details">
                 <p>
-                  <img src={Map} alt="mapa" /> {availableJobs.jobLocation}
+                  <img src={Map} alt="Mapa" /> {job.jobLocation}
                 </p>
                 <p>
-                  <img src={FullTime} alt="full time" />{" "}
-                  {availableJobs.jobCategory}
+                  <img src={FullTime} alt="Full Time" /> {job.jobCategory.title}
                 </p>
                 <p>
-                  {availableJobs.salaryMin} - {availableJobs.salaryMax}
+                  {job.salaryMin} - {job.salaryMax}
                 </p>
               </div>
             </div>
             <div className="button-job">
-              <Link to="/aboutJob">
-                {" "}
-                <Button>View details</Button>
+              <Link to={`/aboutJob/${job._id}`}>
+                <Button>View Details</Button>
               </Link>
             </div>
           </div>

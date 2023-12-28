@@ -24,7 +24,7 @@ function Landing() {
       console.log("Fetching all items");
       console.log(json);
       setCategories(json.data);
-      console.log(json.data);
+      console.log("kategorija", json.data);
     });
   };
 

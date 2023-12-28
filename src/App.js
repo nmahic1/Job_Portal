@@ -16,7 +16,8 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/jobsList" element={<JobsList />}></Route>
         <Route path="/createJob" element={<CreateJob />}></Route>
-        <Route path="/aboutJob" element={<AboutJob />}></Route>
+        {/* <Route path="/aboutJob" element={<AboutJob />}></Route> */}
+        <Route exact path="/aboutJob/:id" element={<AboutJob />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,30 +1,69 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import Button from "../../Components/Button/Button";
+import { Link } from "react-router-dom";
 
 function AboutJob() {
+  const [viewJob, setViewJob] = useState({});
+  const { id } = useParams();
+  const token = localStorage.getItem("token");
+
+  const fetchJobDetails = async () => {
+    try {
+      const result = await fetch(
+        `${process.env.REACT_APP_BACKEND_LINK}/jobpost/load/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const json = await result.json();
+      setViewJob(json.data);
+    } catch (error) {
+      console.error("Error fetching job details:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobDetails();
+  }, [id, token]);
+
   return (
     <div>
       <Navbar />
 
       <div className="aboutjob-wrapper">
-        <p className="name-aboutjob">ime</p>
+        <p className="name-aboutjob">{viewJob.companyName}</p>
         <div className="button-config">
-          <Button>View Company</Button>
+          <Link to="/">
+            {" "}
+            <Button>Home</Button>
+          </Link>
           <Button>Apply This Job</Button>
         </div>
       </div>
 
       <div className="alignment">
         <h4>
-          Minimum Qualification: <br></br> Experience Level:<br></br> Experience
-          Length:<br></br>
-          Location: <br></br> Application Deadline: <br></br> Salary Range:
+          Title:{viewJob.jobTitle}
+          <br></br>
+          Category: {viewJob.jobCategory ? viewJob.jobCategory.title : ""}
+          <br></br>
+          Experience Level:{viewJob.experience}
+          <br></br>
+          Location: {viewJob.jobLocation}
+          <br></br> Application Deadline: {viewJob.applicationDeadline}
+          <br></br> Salary Range:{viewJob.salaryMin}-{viewJob.salaryMax}
         </h4>
-        <h3>Job Description:</h3>
+        <h3>Description:{viewJob.description}</h3>
         <h4>
-          Requirements:<br></br> Responsibilitis:
+          Company Website: {viewJob.companyWebsite}
+          <br></br>
         </h4>
       </div>
 
