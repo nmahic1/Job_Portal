@@ -8,12 +8,10 @@ function Navbar() {
       <p className="name">JobsPortal</p>
       <div className="right">
         <Link to="/login">
-          {" "}
           <Button>Login</Button>
         </Link>
 
         <Link to="/createJob">
-          {" "}
           <Button>Post a Job</Button>
         </Link>
       </div>

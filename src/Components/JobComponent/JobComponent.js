@@ -20,7 +20,7 @@ function JobComponent({ available }) {
                 </p>
                 <p>
                   <img src={FullTime} alt="full time" />{" "}
-                  {availableJobs.jobCategory}
+                  {availableJobs.jobCategory.title}
                 </p>
                 <p>
                   {availableJobs.salaryMin} - {availableJobs.salaryMax}

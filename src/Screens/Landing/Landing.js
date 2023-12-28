@@ -5,6 +5,7 @@ import Box from "../../Components/Box/Box";
 import JobComponent from "../../Components/JobComponent/JobComponent";
 import Footer from "../../Components/Footer/Footer";
 import Login from "../Login/Login";
+import { loadCategories } from "../../api/categories.api";
 
 function Landing() {
   const [availableJobs, setAvailableJobs] = useState([]);
@@ -12,20 +13,8 @@ function Landing() {
   const [categories, setCategories] = useState([]);
 
   const fetchData = async () => {
-    console.log(process.env.REACT_APP_BACKEND_LINK);
-    const result = await fetch(
-      process.env.REACT_APP_BACKEND_LINK + "/category/load",
-      {
-        method: "GET",
-        "Content-Type": "application/json",
-      }
-    );
-    result.json().then((json) => {
-      console.log("Fetching all items");
-      console.log(json);
-      setCategories(json.data);
-      console.log(json.data);
-    });
+    let res = await loadCategories()
+    setCategories(res.data);
   };
 
   const token = localStorage.getItem("token");
@@ -73,7 +62,10 @@ function Landing() {
       <div className="landing-content-2">
         <h2>Popular Categories</h2>
         <div className="box">
-          <Box category={categories} reload={fetchData}></Box>
+          {categories && categories.map(category=>{
+            return <Box category={category}></Box>
+          })}
+          
         </div>
       </div>
       <div className="landing-content-3">
