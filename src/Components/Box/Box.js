@@ -4,12 +4,12 @@ import Ikona from "../../Assets/Icon.png";
 function Box({ category, reload }) {
   return (
     <div className="box-wrapper">
-      {category.map((categories) => (
-        <div className="background-image">
+      {category.map((category) => (
+        <div key={category._id} className="background-image">
           <div className="circle">
             <img className="icon" src={Ikona} alt="Ikona" />
           </div>
-          <div className="text"> {categories.title}</div>
+          <div className="text"> {category.title}</div>
         </div>
       ))}
     </div>

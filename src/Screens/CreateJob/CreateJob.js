@@ -9,12 +9,12 @@ import Login from "../Login/Login";
 function CreateJob() {
   const [companyName, setcompanyName] = useState("");
   const [jobTitle, setjobTitle] = useState("");
-  const [jobCategory, setjobCategory] = useState([]);
+  const [jobCategory, setjobCategory] = useState({});
   const [jobLocation, setjobLocation] = useState("");
   const [experience, setExperience] = useState(0);
   const [applicationDeadline, setapplicationDeadline] = useState("");
   const [companyWebsite, setCompanyWebsite] = useState("");
-  const [jobType, setJobType] = useState([]);
+  const [jobType, setJobType] = useState({});
   const [salaryMin, setSalaryMin] = useState(0);
   const [salaryMax, setSalaryMax] = useState(0);
   const [description, setDescription] = useState("");
@@ -156,6 +156,10 @@ function CreateJob() {
       <Navbar />
       <div className="createjob-wrapper">
         <p className="name-createjob">Create a Job</p>
+        <Link to="/">
+          {" "}
+          <Button>Home</Button>
+        </Link>
         <div className="flex-container">
           <div className="left">
             <Input
@@ -177,7 +181,7 @@ function CreateJob() {
               options={
                 jobCategory && jobCategory.length > 0
                   ? jobCategory.map((category) => ({
-                      value: category._id,
+                      value: category.title,
                       label: category.title,
                     }))
                   : []
@@ -214,22 +218,21 @@ function CreateJob() {
               value={companyWebsite}
               onChange={(e) => setCompanyWebsite(e.target.value)}
             />
-            {
-              <Input
-                label="Job Type"
-                type="dropdown"
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
-                options={
-                  jobType && jobType.length > 0
-                    ? jobType.map((type) => ({
-                        value: type._id,
-                        label: type.jobType,
-                      }))
-                    : []
-                }
-              />
-            }
+
+            <Input
+              label="Job Type"
+              type="dropdown"
+              value={selectedType}
+              onChange={(e) => setSelectedType(e.target.value)}
+              options={
+                jobType && jobType.length > 0
+                  ? jobType.map((type) => ({
+                      value: type.title,
+                      label: type.title,
+                    }))
+                  : []
+              }
+            />
 
             <Input
               label="Min Salary"
@@ -249,6 +252,7 @@ function CreateJob() {
           <Button onClick={handleSave} disabled={isDisabled}>
             Post Job
           </Button>
+
           {/* </Link> */}
         </div>
       </div>
