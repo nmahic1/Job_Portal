@@ -5,6 +5,7 @@ import Register from "./Screens/Register/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JobsList from "./Screens/JobsList/JobsList";
 import CreateJob from "./Screens/CreateJob/CreateJob";
+import AboutJob from "./Screens/AboutJob/AboutJob";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/jobsList" element={<JobsList />}></Route>
         <Route path="/createJob" element={<CreateJob />}></Route>
+        <Route path="/aboutJob" element={<AboutJob />}></Route>
       </Routes>
     </BrowserRouter>
   );

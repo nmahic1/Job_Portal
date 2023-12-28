@@ -9,7 +9,7 @@
     padding-top: 80px;
 
     .green-text {
-      color: rgb(62, 162, 105);
+      color: var(--primary-green);
     }
     .gray-text {
       color: rgb(144, 141, 141);
@@ -46,10 +46,10 @@
     flex-direction: column;
     gap: 12px;
     padding: 15px 35px;
-    .button {
+    /* .button {
       display: flex;
       justify-content: center;
       padding: 10px 10px;
-    }
+    }*/
   }
 }

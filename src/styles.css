@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: rgb(62, 162, 105);
+  color: var(--primary-green);
   padding: 8px;
   box-sizing: border-box;
+  width: 100%;
 }
 .navbar .name {
   font-size: 20px;
@@ -16,7 +17,7 @@
 
 .button-container {
   background-color: white;
-  color: rgb(62, 162, 105);
+  color: var(--primary-green);
   padding: 12px 16px;
   transition: all 0.3s ease;
   border: none;
@@ -24,7 +25,7 @@
   font-size: 15px;
 }
 .button-container:hover, .button-container:focus {
-  background-color: rgb(62, 162, 105);
+  background-color: var(--primary-green);
   color: white;
   cursor: pointer;
   border-radius: 10px;
@@ -72,6 +73,7 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  margin: 20px;
 }
 
 .register-wrapper {
@@ -95,6 +97,7 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  margin: 20px;
 }
 
 .landing-wrapper .landing-content-1 {
@@ -107,7 +110,7 @@
   padding-top: 80px;
 }
 .landing-wrapper .landing-content-1 .green-text {
-  color: rgb(62, 162, 105);
+  color: var(--primary-green);
 }
 .landing-wrapper .landing-content-1 .gray-text {
   color: rgb(144, 141, 141);
@@ -138,11 +141,11 @@
   flex-direction: column;
   gap: 12px;
   padding: 15px 35px;
-}
-.landing-wrapper .landing-content-3 .button {
-  display: flex;
-  justify-content: center;
-  padding: 10px 10px;
+  /* .button {
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+  }*/
 }
 
 .search-wrapper {
@@ -163,24 +166,17 @@
 }
 
 .box-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.box-wrapper .box1 {
   background-color: white;
-  width: 150px;
-  height: 150px;
   border: 1px solid rgb(255, 255, 255);
   padding: 10px;
   margin: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
-.box-wrapper .box1 .background-image {
+.box-wrapper .background-image {
   text-align: center;
 }
-.box-wrapper .box1 .circle {
+.box-wrapper .circle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,59 +184,71 @@
   height: 100px;
   border-radius: 50%;
   background-color: lightblue;
-  margin-left: 25px;
+  margin: 15px;
 }
-.box-wrapper .box1 .icon {
+.box-wrapper .icon {
   align-items: center;
   display: flex;
 }
-.box-wrapper .box1 .text {
-  margin-top: 30px;
+.box-wrapper .text {
+  margin: 10px;
 }
 
-.job-wrapper {
+.button3 {
+  margin: 80px 40px;
+}
+
+.jobcomponent-wrapper {
+  align-items: center;
+}
+.jobcomponent-wrapper .job-wrapper {
   border-radius: 10px;
   border: 1px solid lightgray;
   display: flex;
   align-items: center;
   padding: 0px 25px;
   gap: 25px;
+  margin: 20px;
 }
-.job-wrapper .button-job {
+.jobcomponent-wrapper .job-wrapper .button-job {
   margin-left: auto;
 }
-.job-wrapper .first {
+.jobcomponent-wrapper .job-wrapper .first {
   color: rgb(144, 141, 141);
 }
-.job-wrapper .details {
+.jobcomponent-wrapper .job-wrapper .details {
   display: flex;
   gap: 20px;
 }
-.job-wrapper .details img {
+.jobcomponent-wrapper .job-wrapper .details img {
   width: 12px;
   height: auto;
   gap: 5px;
 }
-.job-wrapper h3 {
+.jobcomponent-wrapper .job-wrapper h3 {
   margin: 0;
 }
-.job-wrapper .text {
+.jobcomponent-wrapper .job-wrapper .text {
   display: flex;
   flex-direction: column;
 }
-.job-wrapper .circle {
+.jobcomponent-wrapper .job-wrapper .circle {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: rgb(62, 162, 105);
+  background-color: var(--primary-green);
+}
+.jobcomponent-wrapper .button2 {
+  display: flex;
+  justify-content: center;
 }
 
 .footer {
   text-align: center;
-  background-color: rgb(62, 162, 105);
+  background-color: var(--primary-green);
   color: white;
   padding: 20px 20px;
 }
@@ -259,6 +267,7 @@
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
   color: rgb(0, 0, 0);
+  margin: 10px;
 }
 .table .header {
   font-size: 20px;
@@ -269,13 +278,15 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 10px;
+  border: none;
 }
 .table .button-icons i:not(:last-child) {
   margin-right: 10px;
 }
 .table .button-icons i:hover,
 .table .button-icons i:active {
-  color: rgb(62, 162, 105);
+  color: var(--primary-green);
 }
 
 .jobsList-wrapper {
@@ -306,7 +317,7 @@
   color: black;
   margin-top: 0px;
   padding: 15px 0px;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }
 .createjob-wrapper .flex-container {
@@ -322,6 +333,34 @@
 }
 .createjob-wrapper .job-button {
   padding: 20px;
+}
+
+.aboutjob-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aboutjob-wrapper .name-aboutjob {
+  background-color: rgb(238, 236, 236);
+  text-align: center;
+  font-size: 1.25rem;
+  color: black;
+  margin-top: 0px;
+  padding: 15px 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.aboutjob-wrapper .button-config {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.alignment {
+  align-items: flex-start;
+  margin: 20px;
+  gap: 10px;
 }
 
 body {
@@ -340,5 +379,5 @@ h2 {
 
 :root {
   font-size: 16px;
-  --primary-green: rgb(62, 162, 105);
+  --primary-green: #338573;
 }/*# sourceMappingURL=styles.css.map */

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import Table from "../../Components/Table/Table";
+import Button from "../../Components/Button/Button";
 
 const types = {
   fullTime: "Full Time",
@@ -18,7 +19,7 @@ function JobsList() {
 
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar> </Navbar>
       <div className="jobsList-wrapper">
         <p className="name-jobsList">My Jobs List</p>
         <Table data={jobs}></Table>

@@ -1,46 +1,56 @@
-.job-wrapper {
-  border-radius: 10px;
-  border: 1px solid lightgray;
-  display: flex;
+.jobcomponent-wrapper {
   align-items: center;
-  padding: 0px 25px;
-  gap: 25px;
 
-  .button-job {
-    margin-left: auto;
-  }
-
-  .first {
-    color: rgb(144, 141, 141);
-  }
-
-  .details {
+  .job-wrapper {
+    border-radius: 10px;
+    border: 1px solid lightgray;
     display: flex;
-    gap: 20px;
+    align-items: center;
+    padding: 0px 25px;
+    gap: 25px;
+    margin: 20px;
 
-    img {
-      width: 12px;
-      height: auto;
-      gap: 5px;
+    .button-job {
+      margin-left: auto;
+    }
+
+    .first {
+      color: rgb(144, 141, 141);
+    }
+
+    .details {
+      display: flex;
+      gap: 20px;
+
+      img {
+        width: 12px;
+        height: auto;
+        gap: 5px;
+      }
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: var(--primary-green);
     }
   }
 
-  h3 {
-    margin: 0;
-  }
-
-  .text {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .circle {
+  .button2 {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: rgb(62, 162, 105);
   }
 }

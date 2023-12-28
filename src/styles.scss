@@ -11,6 +11,7 @@
 @import "./Components/Table/table";
 @import "./Screens/JobsList/jobsList";
 @import "./Screens/CreateJob/createJob";
+@import "./Screens/AboutJob/aboutJob";
 
 body {
   margin: 0;
@@ -28,5 +29,5 @@ h2 {
 
 :root {
   font-size: 16px;
-  --primary-green: rgb(62, 162, 105);
+  --primary-green: #338573;
 }

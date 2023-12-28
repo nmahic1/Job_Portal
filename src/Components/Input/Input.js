@@ -5,11 +5,12 @@ function Input(props) {
     if (props.type === "dropdown") {
       return (
         <select {...props} value={props.value} onChange={props.onChange}>
-          {props.options.map((option, index) => (
-            <option key={index} value={option.value}>
-              {option.label}
-            </option>
-          ))}
+          {props.options &&
+            props.options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
         </select>
       );
     } else if (props.type === "textarea") {
