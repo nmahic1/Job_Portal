@@ -29,6 +29,10 @@ function AboutJob() {
     }
   };
 
+  /* const handleApplyJob = () => {
+    localStorage.setItem("appliedJobId", id);
+  };*/
+
   useEffect(() => {
     fetchJobDetails();
   }, [id, token]);
@@ -42,8 +46,9 @@ function AboutJob() {
           <Link to="/">
             <Button>Home</Button>
           </Link>
-          <Link to="/jobsList">
-            <Button>Apply This Job</Button>
+          {/* <Link to="/jobsList"> */}
+          <Link to={`/jobsList/${id}`}>
+            <Button /*onClick={handleApplyJob}*/>Apply This Job</Button>
           </Link>
         </div>
       </div>
