@@ -153,13 +153,9 @@ function CreateJob() {
 
   return (
     <div>
-      <Navbar />
       <div className="createjob-wrapper">
         <p className="name-createjob">Create a Job</p>
-        <Link to="/">
-          {" "}
-          <Button>Home</Button>
-        </Link>
+
         <div className="flex-container">
           <div className="left">
             <Input
@@ -256,7 +252,6 @@ function CreateJob() {
           {/* </Link> */}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

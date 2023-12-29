@@ -13,6 +13,7 @@
 }
 .navbar .right {
   display: flex;
+  gap: 10px;
 }
 
 .button-container {
@@ -20,7 +21,7 @@
   color: var(--primary-green);
   padding: 12px 16px;
   transition: all 0.3s ease;
-  border: none;
+  border: 1px solid var(--primary-green);
   border-radius: 10px;
   font-size: 15px;
 }
@@ -56,6 +57,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 .login-wrapper .name-login {
   background-color: rgb(238, 236, 236);
@@ -64,7 +66,7 @@
   color: black;
   margin-top: 0px;
   padding: 15px;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }
 .login-wrapper .content {
@@ -80,6 +82,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 .register-wrapper .name-register {
   background-color: rgb(238, 236, 236);
@@ -88,7 +91,7 @@
   color: black;
   margin-top: 0px;
   padding: 15px 0px;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }
 .register-wrapper .content {
@@ -117,9 +120,7 @@
 }
 .landing-wrapper .landing-content-1 h1,
 .landing-wrapper .landing-content-1 p {
-  margin: 0px 5px;
-  padding-left: 80px;
-  padding-top: 10px;
+  margin: 0 80px;
   width: 300px;
 }
 .landing-wrapper .landing-content-1 p {
@@ -141,11 +142,11 @@
   flex-direction: column;
   gap: 12px;
   padding: 15px 35px;
-  /* .button {
-    display: flex;
-    justify-content: center;
-    padding: 10px 10px;
-  }*/
+}
+.landing-wrapper .viewmore-button {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
 .search-wrapper {
@@ -163,6 +164,7 @@
   border-radius: 10px;
   text-align: left;
   font-size: 16px;
+  border: 1px solid var(--primary-green);
 }
 
 .box-wrapper {
@@ -293,6 +295,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 .jobsList-wrapper .name-jobsList {
   background-color: rgb(238, 236, 236);
@@ -301,7 +304,7 @@
   color: black;
   margin-top: 0px;
   padding: 15px;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -335,12 +338,15 @@
   padding: 20px;
 }
 
-.aboutjob-wrapper {
+.wrapper {
+  height: 100vh;
+}
+.wrapper .aboutjob-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.aboutjob-wrapper .name-aboutjob {
+.wrapper .aboutjob-wrapper .name-aboutjob {
   background-color: rgb(238, 236, 236);
   text-align: center;
   font-size: 1.25rem;
@@ -350,14 +356,13 @@
   width: 100%;
   box-sizing: border-box;
 }
-.aboutjob-wrapper .button-config {
+.wrapper .aboutjob-wrapper .button-config {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
-
-.alignment {
+.wrapper .alignment {
   align-items: flex-start;
   margin: 20px;
   gap: 10px;

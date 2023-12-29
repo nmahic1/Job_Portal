@@ -42,7 +42,6 @@ function Login() {
 
   return (
     <div>
-      <Navbar></Navbar>
       <div className="login-wrapper">
         <p className="name-login">Login</p>
         <div className="content">
@@ -69,7 +68,6 @@ function Login() {
           </p>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 }

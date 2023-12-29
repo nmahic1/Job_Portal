@@ -5,12 +5,15 @@ import Table from "../../Components/Table/Table";
 import { useParams } from "react-router-dom";
 import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
+import SearchBar from "../../Components/SearchBar/SearchBar";
 
 function JobsList() {
-  const [job, setJob] = useState([]);
+  const [jobs, setJobs] = useState([]);
   const token = localStorage.getItem("token");
   const [appliedJob, setAppliedJob] = useState({});
-  const { id: appliedJobId } = useParams();
+  const [filteredJobs, setFilteredJobs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  //const { id: appliedJobId } = useParams();
 
   const loadJobs = async () => {
     console.log(process.env.REACT_APP_BACKEND_LINK);
@@ -25,36 +28,49 @@ function JobsList() {
       }
     );
     result.json().then((json) => {
-      setJob(json.data);
+      setJobs(json.data);
     });
   };
 
-  const filterAppliedJob = () => {
+  /*const filterAppliedJob = () => {
     if (appliedJobId) {
       const jobs = job.filter((jobs) => jobs._id === appliedJobId);
       if (jobs.length > 0) {
         setAppliedJob(jobs[0]);
       }
     }
-  };
+  };*/
 
   useEffect(() => {
     loadJobs();
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     filterAppliedJob();
-  }, [job, appliedJobId]);
+  }, [job, appliedJobId]);*/
+
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if (searchTerm === "") {
+      setFilteredJobs([]);
+    } else {
+      const filtered = jobs.filter((job) =>
+        job.jobTitle.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredJobs(filtered);
+    }
+  };
 
   return (
     <div>
-      <Navbar> </Navbar>
       <div className="jobsList-wrapper">
         <p className="name-jobsList">My Jobs List</p>
+        <SearchBar onSearch={handleSearch} />
 
-        <Table job={appliedJob ? [appliedJob] : []}></Table>
+        <Table
+          /*jobs={jobs}*/ jobs={searchTerm === "" ? jobs : filteredJobs}
+        ></Table>
       </div>
-      <Footer></Footer>
     </div>
   );
 }

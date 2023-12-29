@@ -38,18 +38,14 @@ function AboutJob() {
   }, [id, token]);
 
   return (
-    <div>
-      <Navbar />
+    <div className="wrapper">
       <div className="aboutjob-wrapper">
         <p className="name-aboutjob">{viewJob.companyName}</p>
         <div className="button-config">
-          <Link to="/">
-            <Button>Home</Button>
-          </Link>
           {/* <Link to="/jobsList"> */}
-          <Link to={`/jobsList/${id}`}>
-            <Button /*onClick={handleApplyJob}*/>Apply This Job</Button>
-          </Link>
+          {/* <Link to={`/jobsList/${id}`}> */}
+          <Button /*onClick={handleApplyJob}*/>Apply This Job</Button>
+          {/* </Link> */}
         </div>
       </div>
       <div className="alignment">
@@ -71,7 +67,6 @@ function AboutJob() {
           <br></br>
         </h4>
       </div>
-      <Footer />
     </div>
   );
 }

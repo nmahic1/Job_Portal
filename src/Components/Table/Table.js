@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function Table({ job }) {
+function Table({ jobs }) {
   const [deleteJob, setDeleteJob] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
@@ -11,8 +11,8 @@ function Table({ job }) {
     console.log("Opcija Pregleda");
   };
 
-  const handleDeleteClick = async (id) => {
-    await fetch(process.env.REACT_APP_BACKEND_LINK + "/remove/" + id, {
+  /*const handleDeleteClick = async (id) => {
+    await fetch(process.env.REACT_APP_BACKEND_LINK + "/jobpost/remove/" + id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -21,7 +21,7 @@ function Table({ job }) {
 
     setDeleteJob(false);
     console.log(id);
-  };
+  };*/
 
   return (
     <table className="table">
@@ -35,20 +35,20 @@ function Table({ job }) {
       </thead>
 
       <tbody>
-        {job &&
-          job.map((jobs) => (
-            <tr key={jobs._id}>
-              <td>{jobs.companyName}</td>
-              <td>{jobs.jobTitle}</td>
-              <td>{jobs.applicationDeadline}</td>
+        {jobs &&
+          jobs.map((job) => (
+            <tr key={job._id}>
+              <td>{job.companyName}</td>
+              <td>{job.jobTitle}</td>
+              <td>{job.applicationDeadline}</td>
               <td className="button-icons">
-                <i
+                {/* <i
                   className="fas fa-trash-alt"
-                  onClick={() => handleDeleteClick(jobs._id)}
-                ></i>
+                  onClick={() => handleDeleteClick(job._id)}
+                ></i> */}
                 <i
                   className="fas fa-eye"
-                  onClick={() => handleViewClick(jobs._id)}
+                  onClick={() => handleViewClick(job._id)}
                 ></i>
               </td>
             </tr>

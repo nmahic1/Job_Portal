@@ -1,7 +1,7 @@
 import React from "react";
 import Ikona from "../../Assets/Icon.png";
 
-function Box({ category, reload }) {
+function Box({ category }) {
   return (
     <div className="box-wrapper">
       {category.map((category) => (

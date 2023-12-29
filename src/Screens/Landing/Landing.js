@@ -5,13 +5,15 @@ import Box from "../../Components/Box/Box";
 import JobComponent from "../../Components/JobComponent/JobComponent";
 import Footer from "../../Components/Footer/Footer";
 import Login from "../Login/Login";
+import Button from "../../Components/Button/Button";
+import { Link } from "react-router-dom";
 
 function Landing() {
   const [availableJobs, setAvailableJobs] = useState([]);
 
   const [categories, setCategories] = useState([]);
 
-  const fetchData = async () => {
+  const loadCategories = async () => {
     console.log(process.env.REACT_APP_BACKEND_LINK);
     const result = await fetch(
       process.env.REACT_APP_BACKEND_LINK + "/category/load",
@@ -52,13 +54,12 @@ function Landing() {
   };
 
   useEffect(() => {
-    fetchData();
+    loadCategories();
     loadJobs();
   }, []);
 
   return (
     <div className="landing-wrapper">
-      <Navbar />
       <div className="landing-content-1">
         <h1>
           Find a <span className="green-text">Job</span> That{" "}
@@ -73,19 +74,19 @@ function Landing() {
       <div className="landing-content-2">
         <h2>Popular Categories</h2>
         <div className="box">
-          <Box category={categories} reload={fetchData}></Box>
+          <Box category={categories}></Box>
         </div>
       </div>
       <div className="landing-content-3">
         <h2>All Popular Listed jobs</h2>
 
-        <JobComponent
-          available={availableJobs}
-          jobpost={loadJobs}
-        ></JobComponent>
+        <JobComponent available={availableJobs}></JobComponent>
       </div>
-
-      <Footer></Footer>
+      <Link to="/jobsList">
+        <div className="viewmore-button">
+          <Button>View More</Button>
+        </div>
+      </Link>
     </div>
   );
 }
