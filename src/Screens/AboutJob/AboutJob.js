@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import Button from "../../Components/Button/Button";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function AboutJob() {
   const [viewJob, setViewJob] = useState({});
@@ -24,10 +23,15 @@ function AboutJob() {
       );
       const json = await result.json();
       setViewJob(json.data);
+      console.log("job", json.data);
     } catch (error) {
       console.error("Error fetching job details:", error);
     }
   };
+
+  /* const handleApplyJob = () => {
+    localStorage.setItem("appliedJobId", id);
+  };*/
 
   useEffect(() => {
     fetchJobDetails();
@@ -36,19 +40,20 @@ function AboutJob() {
   return (
     <div>
       <Navbar />
-
       <div className="aboutjob-wrapper">
         <p className="name-aboutjob">{viewJob.companyName}</p>
         <div className="button-config">
           <Link to="/">
-            {" "}
             <Button>Home</Button>
           </Link>
-          <Button>Apply This Job</Button>
+          {/* <Link to="/jobsList"> */}
+          <Link to={`/jobsList/${id}`}>
+            <Button /*onClick={handleApplyJob}*/>Apply This Job</Button>
+          </Link>
         </div>
       </div>
-
       <div className="alignment">
+        {" "}
         <h4>
           Title:{viewJob.jobTitle}
           <br></br>
@@ -66,7 +71,6 @@ function AboutJob() {
           <br></br>
         </h4>
       </div>
-
       <Footer />
     </div>
   );

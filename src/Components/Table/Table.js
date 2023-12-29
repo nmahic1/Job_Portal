@@ -1,68 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-function Table({ data }) {
-  const handleDeleteClick = () => {
-    console.log("Opcija Brisanja");
-  };
+function Table({ job }) {
+  const [deleteJob, setDeleteJob] = useState(false);
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
-  const handleEditClick = () => {
-    console.log("Opcija Uređivanja");
-  };
-
-  const handleViewClick = () => {
+  const handleViewClick = (jobId) => {
+    navigate(`/aboutJob/${jobId}`);
     console.log("Opcija Pregleda");
+  };
+
+  const handleDeleteClick = async (id) => {
+    await fetch(process.env.REACT_APP_BACKEND_LINK + "/remove/" + id, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    setDeleteJob(false);
+    console.log(id);
   };
 
   return (
     <table className="table">
       <thead>
         <tr className="header">
-          <th>Title</th>
-          <th>Job Type</th>
-          <th>Posted Data</th>
+          <th>Company Name</th>
+          <th>Job Title</th>
           <th>Application Deadline</th>
           <th>Action</th>
         </tr>
       </thead>
 
       <tbody>
-        {data &&
-          data.length !== 0 &&
-          data.map((entry, i) => {
-            let datePosted = entry.postDate.toLocaleDateString("en-us", {
-              weekday: "long",
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            });
-
-            let deadline = new Date();
-            deadline.setDate(deadline.getDate() + 15);
-
-            let deadlineFormatted = deadline.toLocaleDateString("en-us", {
-              weekday: "long",
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            });
-
-            return (
-              <tr key={entry.title + "_" + i}>
-                <td>{entry.title}</td>
-                <td>{entry.type}</td>
-                <td>{datePosted}</td>
-                <td>{deadlineFormatted}</td>
-                <td className="button-icons">
-                  <i
-                    className="fas fa-trash-alt"
-                    onClick={handleDeleteClick}
-                  ></i>
-                  <i className="fas fa-edit" onClick={handleEditClick}></i>
-                  <i className="fas fa-eye" onClick={handleViewClick}></i>
-                </td>
-              </tr>
-            );
-          })}
+        {job &&
+          job.map((jobs) => (
+            <tr key={jobs._id}>
+              <td>{jobs.companyName}</td>
+              <td>{jobs.jobTitle}</td>
+              <td>{jobs.applicationDeadline}</td>
+              <td className="button-icons">
+                <i
+                  className="fas fa-trash-alt"
+                  onClick={() => handleDeleteClick(jobs._id)}
+                ></i>
+                <i
+                  className="fas fa-eye"
+                  onClick={() => handleViewClick(jobs._id)}
+                ></i>
+              </td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );

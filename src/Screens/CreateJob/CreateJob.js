@@ -45,7 +45,7 @@ function CreateJob() {
   const fetchData1 = async () => {
     console.log(process.env.REACT_APP_BACKEND_LINK);
     const result = await fetch(
-      process.env.REACT_APP_BACKEND_LINK + "/jobpost/load",
+      process.env.REACT_APP_BACKEND_LINK + "/jobType/load",
       {
         method: "GET",
         headers: {
@@ -181,7 +181,7 @@ function CreateJob() {
               options={
                 jobCategory && jobCategory.length > 0
                   ? jobCategory.map((category) => ({
-                      value: category.title,
+                      value: category._id,
                       label: category.title,
                     }))
                   : []
@@ -227,7 +227,7 @@ function CreateJob() {
               options={
                 jobType && jobType.length > 0
                   ? jobType.map((type) => ({
-                      value: type.title,
+                      value: type._id,
                       label: type.title,
                     }))
                   : []

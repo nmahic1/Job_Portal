@@ -14,10 +14,11 @@ function App() {
         <Route path="/" element={<Landing />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/jobsList" element={<JobsList />}></Route>
+        {/* <Route path="/jobsList" element={<JobsList />}></Route> */}
         <Route path="/createJob" element={<CreateJob />}></Route>
         {/* <Route path="/aboutJob" element={<AboutJob />}></Route> */}
         <Route exact path="/aboutJob/:id" element={<AboutJob />} />
+        <Route exact path="/jobsList/:id" element={<JobsList />}></Route>
       </Routes>
     </BrowserRouter>
   );
