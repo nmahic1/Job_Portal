@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Input from "../../Components/Input/Input";
-import Navbar from "../../Components/Navbar/Navbar";
 import Button from "../../Components/Button/Button";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../../Components/Footer/Footer";
+import { useAuth } from "../../Contexts/AuthContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginFailed, setLoginFailed] = useState(false);
-
   const navigate = useNavigate();
+
+  const { setIsLoggedIn, setAuthUser } = useAuth();
 
   const loginUser = async () => {
     try {
@@ -29,6 +29,8 @@ function Login() {
         const data = await response.json();
         const token = data.data.token;
         localStorage.setItem("token", token);
+        setIsLoggedIn(true);
+        setAuthUser(data.data.user);
         navigate("/");
         console.log("Login successful!");
       } else {
@@ -40,6 +42,10 @@ function Login() {
     }
   };
 
+  const handleInputChange = () => {
+    setLoginFailed(false);
+  };
+
   return (
     <div>
       <div className="login-wrapper">
@@ -48,13 +54,19 @@ function Login() {
           <Input
             label="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              handleInputChange();
+            }}
           />
 
           <Input
             label="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              handleInputChange();
+            }}
           />
 
           <Button onClick={loginUser}>Login</Button>

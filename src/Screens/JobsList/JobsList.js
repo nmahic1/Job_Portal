@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
 import Table from "../../Components/Table/Table";
-import { useParams } from "react-router-dom";
-import Button from "../../Components/Button/Button";
-import { Link } from "react-router-dom";
 import SearchBar from "../../Components/SearchBar/SearchBar";
+import useDebounce from "../../Hooks/useDebounce";
 
 function JobsList() {
   const [jobs, setJobs] = useState([]);
   const token = localStorage.getItem("token");
-  const [appliedJob, setAppliedJob] = useState({});
+  //const [appliedJob, setAppliedJob] = useState({});
   const [filteredJobs, setFilteredJobs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   //const { id: appliedJobId } = useParams();
+  const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   const loadJobs = async () => {
     console.log(process.env.REACT_APP_BACKEND_LINK);
@@ -51,15 +48,18 @@ function JobsList() {
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm);
-    if (searchTerm === "") {
-      setFilteredJobs([]);
-    } else {
+  };
+
+  useEffect(() => {
+    if (debouncedSearchTerm !== "") {
       const filtered = jobs.filter((job) =>
-        job.jobTitle.toLowerCase().includes(searchTerm.toLowerCase())
+        job.jobTitle.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
       );
       setFilteredJobs(filtered);
+    } else {
+      setFilteredJobs([]);
     }
-  };
+  }, [debouncedSearchTerm, jobs]);
 
   return (
     <div>
@@ -67,9 +67,7 @@ function JobsList() {
         <p className="name-jobsList">My Jobs List</p>
         <SearchBar onSearch={handleSearch} />
 
-        <Table
-          /*jobs={jobs}*/ jobs={searchTerm === "" ? jobs : filteredJobs}
-        ></Table>
+        <Table jobs={searchTerm === "" ? jobs : filteredJobs}></Table>
       </div>
     </div>
   );

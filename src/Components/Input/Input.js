@@ -2,34 +2,35 @@ import React from "react";
 
 function Input(props) {
   const getInputType = () => {
-    if (props.type === "dropdown") {
-      return (
-        <select {...props} value={props.value} onChange={props.onChange}>
-          {props.options &&
-            props.options.map((option, index) => (
-              <option key={index} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-        </select>
-      );
-    } else if (props.type === "textarea") {
-      return (
-        <textarea
-          {...props}
-          value={props.value}
-          onChange={props.onChange}
-        ></textarea>
-      );
-    } else {
-      return (
-        <input
-          {...props}
-          type={props.type || "text"}
-          value={props.value}
-          onChange={props.onChange}
-        />
-      );
+    switch (props.type) {
+      case "dropdown":
+        return (
+          <select {...props} value={props.value} onChange={props.onChange}>
+            {props.options &&
+              props.options.map((option, index) => (
+                <option key={index} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+          </select>
+        );
+      case "textarea":
+        return (
+          <textarea
+            {...props}
+            value={props.value}
+            onChange={props.onChange}
+          ></textarea>
+        );
+      default:
+        return (
+          <input
+            {...props}
+            type={props.type || "text"}
+            value={props.value}
+            onChange={props.onChange}
+          />
+        );
     }
   };
 

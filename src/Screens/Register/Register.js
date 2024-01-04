@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../../Components/Navbar/Navbar";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../Components/Input/Input";
 import Button from "../../Components/Button/Button";
-import Footer from "../../Components/Footer/Footer";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -11,6 +9,7 @@ function Register() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [registrationMessage, setRegistrationMessage] = useState("");
+  const navigate = useNavigate();
 
   const registerUser = async () => {
     if (!email || !password || !firstName || !lastName) {
@@ -32,6 +31,7 @@ function Register() {
 
       if (response.ok) {
         console.log("Registration successful!");
+        navigate("/login");
       } else {
         const data = await response.json();
         setRegistrationMessage(`Registration failed: ${data.message}`);
@@ -42,6 +42,10 @@ function Register() {
     }
   };
 
+  const handleRegisterMessage = () => {
+    setRegistrationMessage(false);
+  };
+
   return (
     <div className="register-wrapper">
       <p className="name-register">Register</p>
@@ -49,28 +53,41 @@ function Register() {
         <Input
           label="Name"
           value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={(e) => {
+            setFirstName(e.target.value);
+            handleRegisterMessage();
+          }}
         />
 
         <Input
           label="Last Name"
           value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={(e) => {
+            setLastName(e.target.value);
+            handleRegisterMessage();
+          }}
         />
 
         <Input
           label="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            handleRegisterMessage();
+          }}
         />
 
         <Input
           label="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            handleRegisterMessage();
+          }}
         />
 
         <Button onClick={registerUser}>Create Account</Button>
+
         {registrationMessage && (
           <p style={{ color: "red" }}>{registrationMessage}</p>
         )}

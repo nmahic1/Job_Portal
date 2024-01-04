@@ -1,33 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
-import SearchBar from "../../Components/SearchBar/SearchBar";
 import Box from "../../Components/Box/Box";
 import JobComponent from "../../Components/JobComponent/JobComponent";
-import Footer from "../../Components/Footer/Footer";
-import Login from "../Login/Login";
 import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContext";
+import { loadCategories } from "../../api/categories.api";
 
 function Landing() {
   const [availableJobs, setAvailableJobs] = useState([]);
-
   const [categories, setCategories] = useState([]);
 
-  const loadCategories = async () => {
-    console.log(process.env.REACT_APP_BACKEND_LINK);
-    const result = await fetch(
-      process.env.REACT_APP_BACKEND_LINK + "/category/load",
-      {
-        method: "GET",
-        "Content-Type": "application/json",
-      }
-    );
-    result.json().then((json) => {
-      console.log("Fetching all items");
-      console.log(json);
-      setCategories(json.data);
-      console.log("kategorija", json.data);
-    });
+  const { isLoggedIn } = useAuth();
+
+  const getCategories = async () => {
+    let result = await loadCategories();
+    setCategories(result.data);
   };
 
   const token = localStorage.getItem("token");
@@ -54,7 +41,7 @@ function Landing() {
   };
 
   useEffect(() => {
-    loadCategories();
+    getCategories();
     loadJobs();
   }, []);
 
@@ -69,7 +56,6 @@ function Landing() {
           Hand-picked opportunities to work from home, remotely, freelance,
           full-time, part-time, contract and internships.
         </p>
-        <SearchBar />
       </div>
       <div className="landing-content-2">
         <h2>Popular Categories</h2>
@@ -78,15 +64,23 @@ function Landing() {
         </div>
       </div>
       <div className="landing-content-3">
-        <h2>All Popular Listed jobs</h2>
-
-        <JobComponent available={availableJobs}></JobComponent>
+        {isLoggedIn ? (
+          <>
+            <h2>All Popular Listed jobs</h2>
+            <JobComponent available={availableJobs}></JobComponent>
+            <Link to="/jobsList">
+              <div className="viewmore-button">
+                <Button>View More</Button>
+              </div>
+            </Link>
+          </>
+        ) : (
+          <Link to="/login">
+            {" "}
+            <h2>Login to see job listings.</h2>
+          </Link>
+        )}
       </div>
-      <Link to="/jobsList">
-        <div className="viewmore-button">
-          <Button>View More</Button>
-        </div>
-      </Link>
     </div>
   );
 }

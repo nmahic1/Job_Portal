@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function Table({ jobs }) {
-  const [deleteJob, setDeleteJob] = useState(false);
+  //const [deleteJob, setDeleteJob] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  //const token = localStorage.getItem("token");
 
   const handleViewClick = (jobId) => {
     navigate(`/aboutJob/${jobId}`);

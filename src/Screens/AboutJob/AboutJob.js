@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
 import Button from "../../Components/Button/Button";
 import { useParams, Link } from "react-router-dom";
 
@@ -29,10 +27,6 @@ function AboutJob() {
     }
   };
 
-  /* const handleApplyJob = () => {
-    localStorage.setItem("appliedJobId", id);
-  };*/
-
   useEffect(() => {
     fetchJobDetails();
   }, [id, token]);
@@ -42,10 +36,7 @@ function AboutJob() {
       <div className="aboutjob-wrapper">
         <p className="name-aboutjob">{viewJob.companyName}</p>
         <div className="button-config">
-          {/* <Link to="/jobsList"> */}
-          {/* <Link to={`/jobsList/${id}`}> */}
-          <Button /*onClick={handleApplyJob}*/>Apply This Job</Button>
-          {/* </Link> */}
+          <Button>Apply This Job</Button>
         </div>
       </div>
       <div className="alignment">
