@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../../Components/Input/Input";
 import Button from "../../Components/Button/Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,6 +11,8 @@ function Login() {
   const navigate = useNavigate();
 
   const { setIsLoggedIn, setAuthUser } = useAuth();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const loginUser = async () => {
     try {
@@ -46,6 +48,10 @@ function Login() {
     setLoginFailed(false);
   };
 
+  const toggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
   return (
     <div>
       <div className="login-wrapper">
@@ -60,13 +66,29 @@ function Login() {
             }}
           />
 
-          <Input
+          {/* <Input
             label="Password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
               handleInputChange();
             }}
+          /> */}
+
+          <Input
+            label="Password"
+            value={password}
+            type={showPassword ? "text" : "password"}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              handleInputChange();
+            }}
+            icon={
+              <div
+                className={`password-toggle ${showPassword ? "visible" : ""}`}
+                onClick={toggleShowPassword}
+              ></div>
+            }
           />
 
           <Button onClick={loginUser}>Login</Button>

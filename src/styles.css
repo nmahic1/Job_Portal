@@ -120,7 +120,7 @@
 }
 .landing-wrapper .landing-content-1 h1,
 .landing-wrapper .landing-content-1 p {
-  margin: 20px 80px;
+  margin: 1% 10%;
   width: 300px;
 }
 .landing-wrapper .landing-content-1 p {
@@ -170,12 +170,11 @@
 .box-wrapper {
   display: grid;
   grid-template-columns: repeat(5, minmax(150px, 1fr));
-  gap: 10px;
 }
 .box-wrapper .background-image {
   text-align: center;
   background-color: white;
-  margin: 10px;
+  margin: 10%;
 }
 @media (max-width: 768px) {
   .box-wrapper {
@@ -190,7 +189,7 @@
   height: 100px;
   border-radius: 50%;
   background-color: lightblue;
-  margin: 20px 40px;
+  margin: 15%;
 }
 .box-wrapper .icon {
   align-items: center;
@@ -246,10 +245,6 @@
   height: 100px;
   border-radius: 50%;
   background-color: var(--primary-green);
-}
-.jobcomponent-wrapper .button2 {
-  display: flex;
-  justify-content: center;
 }
 
 .footer {

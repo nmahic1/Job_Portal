@@ -36,7 +36,9 @@ function AboutJob() {
       <div className="aboutjob-wrapper">
         <p className="name-aboutjob">{viewJob.companyName}</p>
         <div className="button-config">
-          <Button>Apply This Job</Button>
+          <Button onClick={() => alert("Implementation in process.")}>
+            Apply This Job
+          </Button>
         </div>
       </div>
       <div className="alignment">

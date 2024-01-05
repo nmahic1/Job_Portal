@@ -53,7 +53,7 @@ function CreateJob() {
         toast.success(data?.message);
       })
       .catch((err) => {
-        toast.error(err.message);
+        //toast.error(err.message);
       });
   };
 
